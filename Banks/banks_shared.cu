@@ -5,6 +5,20 @@
 
 using namespace std;
 
+/**
+ * Code written almost entirely by Gemini 3.0 flash
+ * I fed it the idea of using the intermediate layout proposed in class. It did
+ * the rest
+ *
+ * This implementation strikes a nice balance between reading/writing full cache
+ * lines from main memory and avoiding bank conflicts in shared memory.
+ * 
+ * The intermediate layout from class is as follows for a 4x4 matrix:
+ * 0  4  9  12
+ * 13 1  5  9
+ * 10 14 2 6
+ * 7  11 15 3
+ */
 __global__ void kernel_call(int N, float *in, float *out) {
     __shared__ float share_buf[64 * 64];
 

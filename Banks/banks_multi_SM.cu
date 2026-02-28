@@ -4,7 +4,11 @@
 #include <stdlib.h>
 
 using namespace std;
-
+/**
+ * Code written almost entirely with Gemini 3.0 flash
+ * It runs the kernel on multiple SMs for a matrix that is larger than 64x64
+ * It is pretty good
+ */
 __global__ void kernel_call(int N, float *in, float *out) {
     __shared__ float share_buf[64 * 64];
 

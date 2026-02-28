@@ -4,7 +4,11 @@
 #include <stdlib.h>
 
 using namespace std;
-
+/**
+ * Code written almost entirely with Gemini 3.0 flash
+ * It simply launches a bunch of kernels serially to "tile" a matrix that is larger than 64x64
+ * It is pretty bad
+ */
 // This kernel only processes ONE 64x64 tile based on the offsets provided
 __global__ void kernel_tile_transpose(int N, float *in, float *out, int tile_x,
                                       int tile_y) {
